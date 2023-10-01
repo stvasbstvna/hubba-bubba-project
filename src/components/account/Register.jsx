@@ -84,26 +84,3 @@ const Register = () => {
 };
 
 export default Register;
-
-{
-  /* <>
-              <h3>Register Form</h3>
-              <input
-                type="text"
-                placeholder="Username"
-                onChange={(e) => setUser({ ...user, username: e.target.value })}
-              />
-
-              <input
-                type="password"
-                placeholder="Password"
-                onChange={(e) => setUser({ ...user, password: e.target.value })}
-              />
-
-              <button
-                onClick={() => dispatch(registerAccount({ user, navigate }))}
-              >
-                Register
-              </button>
-            </> */
-}
