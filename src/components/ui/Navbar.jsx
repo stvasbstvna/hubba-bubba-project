@@ -1,14 +1,17 @@
-import React,{useEffect} from "react";
-import { useNavigate } from "react-router-dom";
-import { logout, checkUserLogin } from "../../helpers/functions";
-import { updateToken } from "../../helpers/functions";
+
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { logout, checkUserLogin } from '../../helpers/functions';
+import { updateToken } from '../../helpers/functions';
 
 const NavBar = () => {
   const navigate = useNavigate();
 
-  useEffect(() =>{
-    updateToken()
-  },[])
+
+  useEffect(() => {
+    updateToken();
+  }, []);
+
 
   return (
     <>
@@ -126,31 +129,6 @@ const NavBar = () => {
                     </div>
                   </>
                 )}
-                {/* <button
-            className="rounded-md bg-pink-500 px-5 py-2.5 text-sm font-medium text-white shadow"
-            href="/"
-            onClick={() => navigate("/login")}
-          >
-            Login
-          </button> */}
-
-                {/* <button
-            className="rounded-md bg-pink-500 px-5 py-2.5 text-sm font-medium text-white shadow"
-            href="/"
-            onClick={() => navigate("/login")}
-          >
-            Logout
-          </button>
-
-          <div className="hidden sm:flex">
-            <button
-              className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-pink-500"
-              href="/"
-              onClick={() => navigate("/register")}
-            >
-              Register
-            </button>
-          </div> */}
               </div>
 
               <div className="block md:hidden">

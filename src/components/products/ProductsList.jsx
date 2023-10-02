@@ -26,6 +26,7 @@ const ProductsList = ({product}) => {
             }
             </div>
         )}
+
     </>
   )
 }
