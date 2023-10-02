@@ -13,3 +13,14 @@ export const registerAccount = createAsyncThunk(
         return { navigate };
     }
 );
+
+export const loginAccount = createAsyncThunk(
+    'account/loginAccount',
+    async ({ user, navigate }) => {
+        const accountData = new FormData();
+        accountData.append('username', user.username);
+        accountData.append('password', user.password);
+        const { data } = await axios.post(`${ACCOUNT_API}/api/token/`, accountData);
+        return { data, navigate, user: user.username };
+    }
+);

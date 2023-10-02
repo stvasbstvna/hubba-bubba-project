@@ -13,13 +13,13 @@ const HomePage = () => {
         </a>
       </div>
       <div className={style.right}>
-        <div class={style.cardContainer}>
-          <div class={style.cardSlide}>
-            <div class={style.cardSlideFront}>
+        <div className={style.cardContainer}>
+          <div className={style.cardSlide}>
+            <div className={style.cardSlideFront}>
               <img
                 src="https://content2.rozetka.com.ua/goods/images/big/285926242.jpg" />
             </div>
-            <div class={style.cardSlideBack}>
+            <div className={style.cardSlideBack}>
               <h2>Hubba Bubba Bubble Gum Tape</h2>
               <h3>Ingredients:</h3>
               <p>SUGAR, GUM BASE, CORN SYRUP, GLYCEROL; LESS THAN 2% OF: CORN STARCH, SOY LECITHIN, NATURAL AND ARTIFICIAL FLAVORS, ACESULFAME K, ASPARTAME, BHT (TO MAINTAIN FRESHNESS), COLORS (RED 40, RED 40 LAKE).</p>
