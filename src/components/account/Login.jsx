@@ -49,7 +49,7 @@ const Login = () => {
           ) : (
             <div className="max-w-sm mx-auto flex flex-col px-2 ">
               <div className="bg-white px-6 py-14 rounded shadow-md text-black w-full">
-                <h3 className="mb-8 font-bold text-3xl text-center">Sign In</h3>
+                <h3 className="mb-8 font-bold text-3xl text-center">Sign Up</h3>
                 <input
                   type="text"
                   className="border border-slate-300 w-full p-3 rounded mb-4"
@@ -72,7 +72,7 @@ const Login = () => {
                   className="w-full text-center py-3 rounded bg-pink-500 font-bold text-white hover:bg-pink-700"
                   onClick={() => dispatch(loginAccount({ user, navigate }))}
                 >
-                  Login
+                  login
                 </button>
               </div>
             </div>
@@ -80,7 +80,7 @@ const Login = () => {
         </>
       )}
     </>
-  )
+  );
 }
 
 export default Login
