@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { loginAccount, registerAccount } from "./accountActions";
-import { addDataToLocalStorage } from "../../helpers/functions";
+import { addDataToLocalStorage, updateToken } from "../../helpers/functions";
 
 const accountSlice = createSlice({
   name: "account",
@@ -37,6 +37,7 @@ const accountSlice = createSlice({
         state.loading = false
         state.user = action.payload.user
         addDataToLocalStorage(action.payload.user, action.payload.data)
+        updateToken()
         action.payload.navigate('/')
       })
       .addCase(loginAccount.rejected , (state) =>{
