@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { logout, checkUserLogin } from '../../helpers/functions';
+import { updateToken } from '../../helpers/functions';
 
 const Navbar = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    updateToken();
+  }, []);
 
   return (
     <div>
@@ -19,6 +24,7 @@ const Navbar = () => {
           <button onClick={() => navigate('/login')}>Login</button>
         </>
       )}
+      <button onClick={() => navigate('/products')}>Products</button>
     </div>
   )
 }
