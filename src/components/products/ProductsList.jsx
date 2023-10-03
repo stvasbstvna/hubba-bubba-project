@@ -3,7 +3,7 @@ import { useDispatch,useSelector } from 'react-redux'
 import { getProducts } from '../../store/products/productsActions'
 import ProductItem from './ProductItem'
 
-const ProductsList = ({product}) => {
+const ProductsList = () => {
     const {products, loading } = useSelector(state => state.products)
     const dispacth = useDispatch()
 
