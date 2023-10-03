@@ -4,6 +4,10 @@ import HomePage from '../pages/HomePage/HomePage';
 import RegisterPage from '../pages/RegisterPage';
 import LoginPage from '../pages/LoginPage';
 import ProductsPage from '../pages/ProductsPage';
+import ProductDetailsPage from '../pages/ProductDetailsPage';
+import ProductEditPage from '../pages/ProductEditPage';
+import ProductCreatePage from '../pages/ProductCreatePage';
+
 
 const MainRoutes = () => {
   const ROUTES = [
@@ -25,9 +29,22 @@ const MainRoutes = () => {
     {
       id: 4,
       path: '/products',
-
       element: <ProductsPage />
-
+    },
+    {
+      id: 5,
+      path: '/products/:id',
+      element: <ProductDetailsPage />
+    },
+    {
+      id: 6,
+      path: '/product-edit/:id',
+      element: <ProductEditPage />
+    },
+    {
+      id: 7,
+      path: '/product-create',
+      element: <ProductCreatePage />
     }
   ];
 

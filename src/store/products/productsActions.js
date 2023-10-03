@@ -9,3 +9,35 @@ export const getProducts = createAsyncThunk(
         return data;
     }
 );
+
+export const getOneProduct = createAsyncThunk(
+    'products/getOneProduct',
+    async ({ id }) => {
+        const { data } = await axios.get(`${PRODUCTS_API}/${id}`);
+        return data;
+    }
+);
+
+export const editProduct = createAsyncThunk(
+    'products/editProduct',
+    async ({ product }, { dispatch }) => {
+        await axios.patch(`${PRODUCTS_API}/${product.id}`, product);
+        dispatch(getProducts());
+    }
+);
+
+export const deleteProduct = createAsyncThunk(
+    'products/deleteProduct',
+    async ({ id }, { dispatch }) => {
+        await axios.delete(`${PRODUCTS_API}/${id}`);
+        dispatch(getProducts());
+    }
+);
+
+export const createProduct = createAsyncThunk(
+    'products/createProduct',
+    async ({ product }, { dispatch }) => {
+        await axios.post(PRODUCTS_API, product);
+        dispatch(getProducts());
+    }
+);
