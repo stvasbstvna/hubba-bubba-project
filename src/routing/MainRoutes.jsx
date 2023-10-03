@@ -25,7 +25,9 @@ const MainRoutes = () => {
     {
       id: 4,
       path: '/products',
+
       element: <ProductsPage />
+
     }
   ];
 

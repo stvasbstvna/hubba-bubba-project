@@ -1,6 +1,7 @@
 import React from 'react'
 import ProductsList from '../components/products/ProductsList'
 
+
 const ProductsPage = () => {
   return (
     <div>
@@ -10,3 +11,4 @@ const ProductsPage = () => {
 }
 
 export default ProductsPage
+

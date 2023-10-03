@@ -1,28 +1,32 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getProducts } from '../../store/products/productsActions';
-import ProductItem from './ProductItem';
+import React,{useEffect} from 'react'
+import { useDispatch,useSelector } from 'react-redux'
+import { getProducts } from '../../store/products/productsActions'
+import ProductItem from './ProductItem'
 
-const ProductsList = () => {
-    const { products, loading } = useSelector(state => state.products);
+const ProductsList = ({product}) => {
+    const {products, loading } = useSelector(state => state.products)
+    const dispacth = useDispatch()
 
-    const dispatch = useDispatch();
+    useEffect(() =>{
+        dispacth(getProducts())
+    },[])
 
-    useEffect(() => {
-        dispatch(getProducts());
-    }, []);
+    console.log(products);
 
   return (
     <>
-        { loading ? (
+        {loading ? (
             <h3>Loading...</h3>
-        ) : (
-            <div>
-                {products.map(product => (
-                    <ProductItem key={product.id} product={product} />
-                ))}
+        ):(
+            <div className='flex flex-row flex-wrap justify-center'>
+            {
+                products.map(products =>(
+                    <ProductItem key={products.id} product={products}/>
+                ))
+            }
             </div>
-        ) }
+        )}
+
     </>
   )
 }

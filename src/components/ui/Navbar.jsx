@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { logout, checkUserLogin } from '../../helpers/functions';
@@ -6,9 +7,11 @@ import { updateToken } from '../../helpers/functions';
 const NavBar = () => {
   const navigate = useNavigate();
 
+
   useEffect(() => {
     updateToken();
   }, []);
+
 
   return (
     <>
@@ -82,12 +85,12 @@ const NavBar = () => {
                   </li>
 
                   <li>
-                    <a
+                    <button
                       className="text-gray-500 transition hover:text-gray-500/75"
-                      href="/"
+                      onClick={() => navigate('/products')}
                     >
-                      Blog
-                    </a>
+                      Products
+                    </button>
                   </li>
                 </ul>
               </nav>
