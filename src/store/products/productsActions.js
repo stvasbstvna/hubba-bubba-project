@@ -9,3 +9,11 @@ export const getProducts = createAsyncThunk(
         return data;
     }
 );
+
+export const getOneProduct = createAsyncThunk(
+    'products/getOneProduct',
+    async ({ id }) => {
+        const { data } = await axios.get(`${PRODUCTS_API}/${id}`);
+        return data;
+    }
+)
