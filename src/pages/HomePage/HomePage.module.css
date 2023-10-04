@@ -108,7 +108,7 @@
   }
   
   .cardSlideFront {
-    background-color: #B00;
+    background-color: transparent;
     transform: translateY(0%);
   }
   
@@ -139,3 +139,133 @@
     height: 100%;
     object-fit: cover;
   }
+
+.secondPage{
+  height: 100vh;
+  /* background: url('https://img.freepik.com/free-photo/charming-curly-red-haired-woman-white-top-makes-bubble-gum-portrait-young-woman-orange-background_197531-14858.jpg?w=740&t=st=1696389394~exp=1696389994~hmac=ba075e15bfe1b0527b3043f5f221a555b30ce3aa92245e73cefc8de97cf248bc'); */
+  background: url('https://img.freepik.com/premium-vector/abstract-vector-background-soft-pastel-gradation-bright-creative-ideas_29865-4151.jpg?w=900');
+  background-size: cover;
+  background-position: center;
+  width:100vw;
+  overflow: hidden;
+  font-size: 1em;
+  color:#FFF3E0;
+  text-align:center;
+  position: relative;
+}
+h2{
+  font-size:2rem;
+  margin-top:70px; 
+  color:#fff;
+  font-family: "Meta";
+  font-weight: bold;
+  letter-spacing: 7px;
+  width: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(221, 109, 212, 0.986));
+  line-height: 0.7em;
+  outline: none;
+  animation: glow 5s linear infinite;
+  /* animation-delay: 3s; */
+}
+@keyframes glow {
+  0%,
+  /* 18.1%, */
+  55%{
+    color: #ae4dfd;
+    text-shadow: none;
+  }
+  /* 20.1%,
+  60.2%, */
+  100% {
+    color: #ffff;
+    text-shadow: 0 0 10px #adb5bd, 0 0 20px #adb5bd, 0 0 40px #212529,
+      0 0 60px #adb5bd, 0 0 80px #212529, 0 0 140px #adb5bd;
+  }
+} 
+
+.bubble{
+  position:absolute;
+  width:10em;
+  height:10em;
+  border-radius:50%;
+  background: radial-gradient(circle, rgba(243,165,245,1) 0%, rgba(241,183,225,0.989233193277311) 100%);
+  box-shadow: inset 0 20px 30px rgba(255, 255, 255, 0.4), inset 1em 1em 1em rgba(255, 255, 255, 0.6), 0 1em 2em rgba(0, 0, 0, 0.25);
+  z-index: 6;
+}
+.bubble:hover{
+  display:none;
+}
+
+.b1{
+  animation: floatup 10s linear infinite, sideways 5s ease-in-out infinite alternate;
+  left: 10%;
+  top:100%; 
+}
+.b2{
+  animation: floatup 5s linear infinite, sideways 4s ease-in-out 1s infinite alternate;
+  left: 15%;
+  top: 30%;
+  transform: scale(.7);
+}
+.b3{
+  animation: floatup 4s linear infinite, sideways 6s ease-in-out 6s infinite alternate;
+  left: 20%;
+  transform: scale(1.2);
+}
+.b4{
+  animation: floatup 6s linear infinite, sideways 5s ease-in-out 3s infinite alternate;
+  left: 25%;
+  top:90%;
+  transform: scale(.5);
+}
+.b5{
+  animation: floatup 8s linear infinite, sideways 6s ease-in-out 3s infinite alternate;
+  left: 30%;
+  top:30%;
+  transform: scale(1.1);
+}
+.b6{
+  animation: floatup 7s linear infinite, sideways 4s ease-in-out 3.5s infinite alternate;
+  left:40%;
+  top:50%;
+  transform: scale(.7);
+}
+.b7{
+  animation: floatup 6s linear infinite, sideways 5s ease-in-out 4s infinite alternate;
+  left: 90%;
+  top:90%;
+  transform: scale(.6);
+}
+@keyframes floatup{
+  0% {margin-top: 50%;}
+  100% {margin-top: -50%;}
+}
+@keyframes sideways{
+  0% {margin-left: 0em;}
+  100%{margin-left: 20em;}
+}
+.container {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.image {
+  width: 250px;
+  height: 350px; 
+  object-fit: cover;
+  /* border-radius: inherit; */
+  transform: scale(1.1);
+  filter: grayscale(1);
+  transition: 400ms ease;
+}
+
+.image:hover  {
+  filter: grayscale(0);
+  transform: scale(1);
+}
