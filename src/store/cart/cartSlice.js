@@ -15,7 +15,6 @@ export const cartSlice = createSlice({
 
 export const { getCart } = cartSlice.actions;
 export default cartSlice.reducer;
-
 // {
 //     user: 'Jack',
 //     totalCost: 1740,
