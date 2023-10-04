@@ -7,6 +7,7 @@ import ProductsPage from '../pages/ProductsPage';
 import ProductDetailsPage from '../pages/ProductDetailsPage';
 import ProductEditPage from '../pages/ProductEditPage';
 import ProductCreatePage from '../pages/ProductCreatePage';
+import CartPage from '../pages/CartPage';
 
 
 const MainRoutes = () => {
@@ -45,6 +46,11 @@ const MainRoutes = () => {
       id: 7,
       path: '/product-create',
       element: <ProductCreatePage />
+    },
+    {
+      id: 8,
+      path: '/cart',
+      element: <CartPage />
     }
   ];
 

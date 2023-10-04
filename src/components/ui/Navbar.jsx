@@ -78,6 +78,16 @@ const NavBar = () => {
                     <li>
                       <button
                         className="text-gray-500 transition hover:text-gray-500/75"
+                        onClick={() => navigate('/cart')}
+                      >
+                        Carts
+                      </button>
+                    </li>
+                  )}
+                  {checkUserLogin() && (
+                    <li>
+                      <button
+                        className="text-gray-500 transition hover:text-gray-500/75"
                         onClick={() => navigate('/product-create')}
                       >
                         Add Product
