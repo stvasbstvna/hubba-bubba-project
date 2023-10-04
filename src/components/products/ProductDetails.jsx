@@ -76,7 +76,6 @@ const ProductDetails = () => {
                     <button
                     className="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-pink-300 focus:relative"
                      onClick={() => toggleProductToCart(oneProduct)}>{checkProductInCart() ? "Remove From Cart":"Add To Cart"}</button>
-
                   </span>   
                 </div> 
               )} 

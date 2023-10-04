@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getCart } from "../../store/cart/cartSlice";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCart } from '../../store/cart/cartSlice';
 
 const Cart = () => {
-  const { cart } = useSelector((state) => state.cart);
+  const { cart } = useSelector(state => state.cart);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getCart());
   }, []);
+
   return (
     <div>
       {cart && (
@@ -20,32 +21,29 @@ const Cart = () => {
                   <tr>
                     <th>Name</th>
                     <th>Picture</th>
-                    <th>Price For One</th>
+                    <th>Price for one</th>
                     <th>Count</th>
-                    <th>Total Cost</th>
+                    <th>Total cost</th>
                     <th>Delete</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {cart.products.map((product) => (
+                  {cart.products.map(product => (
                     <tr>
-                      <td>{product.productItem.name}</td>
                       <td>
-                        <img
-                          src={product.productItem.picture}
-                          alt={product.productItem.name}
-                          width="50"
-                          height="50"
-                        />
+                        { product.productItem.name }
                       </td>
                       <td>
-                        ${product.productItem.price}
+                        <img src={product.productItem.picture} alt={product.productItem.name} width="50" height="50" />
+                      </td>
+                      <td>
+                        ${ product.productItem.price }
                       </td>
                       <td>
                         <input type="number" value={product.count} />
                       </td>
                       <td>
-                        {product.totalPrice}
+                        ${product.totalPrice}
                       </td>
                       <td>
                         <button>Delete</button>
@@ -59,7 +57,7 @@ const Cart = () => {
               <button>Clean Cart</button>
             </>
           ) : (
-            <h3>Cart is empty</h3>
+            <h3>Cart is empty!</h3>
           )}
         </>
       )}
