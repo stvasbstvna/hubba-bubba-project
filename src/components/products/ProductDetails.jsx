@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getOneProduct, deleteProduct } from '../../store/products/productsActions';
 import { clearOneProductState } from '../../store/products/productsSlice';
 import { checkUserLogin } from '../../helpers/functions';
+import { toggleProductToCart, checkProductInCart } from '../../store/cart/cartActions';
 
 const ProductDetails = () => {
     const { loading, oneProduct } = useSelector(state => state.products);
@@ -35,6 +36,7 @@ const ProductDetails = () => {
                                     dispatch(deleteProduct({ id: oneProduct.id }));
                                     navigate('/products');
                                 }}>Delete</button>
+                                <button onClick={() => toggleProductToCart(oneProduct)}>{checkProductInCart() ? 'Remove From Cart' : 'Add To Cart'}</button>
                             </div>
                         )}
                     </div>
