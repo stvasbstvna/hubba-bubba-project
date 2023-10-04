@@ -3,9 +3,11 @@
 .homePage{
     height: 100vh;
     display: flex;
-    background: url('https://img.freepik.com/premium-vector/pastel-color-abstract-background-with-bokeh_31543-138.jpg?w=740');
+    /* background: url('https://img.freepik.com/premium-vector/pastel-color-abstract-background-with-bokeh_31543-138.jpg?w=740');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed; */
+    position: relative;
 }
 .left{
     flex: 1;
@@ -45,28 +47,28 @@
     }
 }
 .mainButton{
-    padding: 10px 20px;
-  border: none;
-  font-size: 17px;
-  color: #fff;
-  border-radius: 7px;
-  letter-spacing: 4px;
-  font-weight: 700;
-  text-transform: uppercase;
-  transition: 0.5s;
-  transition-property: box-shadow;
-  background: rgb(0,140,255);
-  box-shadow: 0 0 25px rgb(0,140,255);
-  margin-top: 25px;
-  text-decoration: none;
-  animation: animateButton 6s infinite ease alternate;
+  padding: 10px 20px;
+border: none;
+font-size: 17px;
+color: #d040f1;
+border-radius: 7px;
+letter-spacing: 4px;
+font-weight: 700;
+text-transform: uppercase;
+transition: 0.5s;
+transition-property: box-shadow;
+background: linear-gradient(#fc66ff88, #ededa1cd, #c09de8cd);
+box-shadow: 0 0 25px rgb(255, 81, 238);
+margin-top: 25px;
+text-decoration: none;
+animation: animateButton 6s infinite ease alternate;
 }
 .mainButton:hover {
-    box-shadow: 0 0 5px rgb(0,140,255),
-                0 0 25px rgb(0,140,255),
-                0 0 50px rgb(0,140,255),
-                0 0 100px rgb(0,140,255);
-  }
+  box-shadow: 0 0 5px rgb(240, 85, 224),
+              0 0 25px rgb(240, 85, 224),
+              0 0 50px rgb(240, 85, 224),
+              0 0 100px rgb(240, 85, 224);
+}
 @keyframes animateButton {
     100%{
         transform: translateX(100px);
@@ -92,7 +94,6 @@
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.5s;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
   
   .cardSlideFront,
@@ -103,8 +104,9 @@
     top: 0;
     left: 0;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(216, 49, 202, 0.918);
     transition: transform 0.7s;
+    justify-content: center;
+    align-items: center;
   }
   
   .cardSlideFront {
@@ -113,18 +115,30 @@
   }
   
   .cardSlideBack {
-    background: linear-gradient(#e4f077, #fff);
-    color: #9e6cee;
+    background: linear-gradient(#ff66cf88, #ededa1cd, #f432aa68, #c1e7ebb9);
+    color: #8d56e5;
+    font-weight: bold;
     opacity: 0;
     transform: translateY(0%);
     transition: opacity 0.5s;
     font-size: 1rem;
     padding: 10px;
-    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-items: center;
+  }
+  
+  .cardSlideBack h2 {
+    font-size: 30px;
+    color: #8040e8;
+  }
+
+  .cardSlideBack h3 {
+    font-weight: bolder;
+    color: rgb(255, 71, 215);
+    font-size: 18px;
+    text-transform: uppercase;
   }
   
   .cardContainer:hover .cardSlideFront {
@@ -142,18 +156,16 @@
 
 .secondPage{
   height: 100vh;
-  /* background: url('https://img.freepik.com/free-photo/charming-curly-red-haired-woman-white-top-makes-bubble-gum-portrait-young-woman-orange-background_197531-14858.jpg?w=740&t=st=1696389394~exp=1696389994~hmac=ba075e15bfe1b0527b3043f5f221a555b30ce3aa92245e73cefc8de97cf248bc'); */
-  background: url('https://img.freepik.com/premium-vector/abstract-vector-background-soft-pastel-gradation-bright-creative-ideas_29865-4151.jpg?w=900');
+  /* background: url('https://img.freepik.com/premium-vector/abstract-vector-background-soft-pastel-gradation-bright-creative-ideas_29865-4151.jpg?w=900');
   background-size: cover;
-  background-position: center;
+  background-position: center; */
   width:100vw;
   overflow: hidden;
   font-size: 1em;
   color:#FFF3E0;
   text-align:center;
-  position: relative;
 }
-h2{
+.heading{
   font-size:2rem;
   margin-top:70px; 
   color:#fff;
@@ -167,17 +179,13 @@ h2{
   line-height: 0.7em;
   outline: none;
   animation: glow 5s linear infinite;
-  /* animation-delay: 3s; */
 }
 @keyframes glow {
   0%,
-  /* 18.1%, */
   55%{
     color: #ae4dfd;
     text-shadow: none;
   }
-  /* 20.1%,
-  60.2%, */
   100% {
     color: #ffff;
     text-shadow: 0 0 10px #adb5bd, 0 0 20px #adb5bd, 0 0 40px #212529,
@@ -248,7 +256,7 @@ h2{
 }
 .container {
   width: 100%;
-  height: 100%;
+  height: 80%;
   border-radius: 12px;
   overflow: hidden;
   display: flex;
@@ -256,10 +264,9 @@ h2{
   align-items: center;
 }
 .image {
-  width: 250px;
+  width: 400px;
   height: 350px; 
   object-fit: cover;
-  /* border-radius: inherit; */
   transform: scale(1.1);
   filter: grayscale(1);
   transition: 400ms ease;
