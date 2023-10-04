@@ -58,7 +58,7 @@ const NavBar = () => {
                         className="text-white transition hover:text-pink-600 hover:text-opacity-75 font-bold uppercase"
                         onClick={() => navigate("/cart")}
                       >
-                        Cart
+                        Carts
                       </button>
                     </li>
                   )}
