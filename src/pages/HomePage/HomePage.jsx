@@ -39,7 +39,7 @@ const HomePage = () => {
       </div>
     </div>
     <div className={style.secondPage}>
-        <h2>Hover to pop the bubbles!</h2>
+        <h2 className={style.heading}>Hover to pop the bubbles!</h2>
         <div className={`${style.bubble} ${style.b1}`}></div>
         <div className={`${style.bubble} ${style.b2}`}></div>
         <div className={`${style.bubble} ${style.b3}`}></div>
@@ -49,8 +49,8 @@ const HomePage = () => {
         <div className={`${style.bubble} ${style.b7}`}></div>
         <div className={style.container}>
           <img className={style.image} src={HubbaRed} alt='hubba'/>
-          <img className={style.image} src={HubbaJug} alt='hubba'/>
           <img className={style.image} src={HubbaBox} alt='hubba'/>
+          <img className={style.image} src={HubbaPink} alt='hubba'/>
         </div>
         
     </div>

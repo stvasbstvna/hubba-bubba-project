@@ -45,7 +45,7 @@
     }
 }
 .mainButton{
-    padding: 10px 20px;
+  padding: 10px 20px;
   border: none;
   font-size: 17px;
   color: #fff;
@@ -92,7 +92,6 @@
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.5s;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
   
   .cardSlideFront,
@@ -103,7 +102,6 @@
     top: 0;
     left: 0;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(216, 49, 202, 0.918);
     transition: transform 0.7s;
   }
   
@@ -142,7 +140,6 @@
 
 .secondPage{
   height: 100vh;
-  /* background: url('https://img.freepik.com/free-photo/charming-curly-red-haired-woman-white-top-makes-bubble-gum-portrait-young-woman-orange-background_197531-14858.jpg?w=740&t=st=1696389394~exp=1696389994~hmac=ba075e15bfe1b0527b3043f5f221a555b30ce3aa92245e73cefc8de97cf248bc'); */
   background: url('https://img.freepik.com/premium-vector/abstract-vector-background-soft-pastel-gradation-bright-creative-ideas_29865-4151.jpg?w=900');
   background-size: cover;
   background-position: center;
@@ -153,7 +150,7 @@
   text-align:center;
   position: relative;
 }
-h2{
+.heading{
   font-size:2rem;
   margin-top:70px; 
   color:#fff;
@@ -167,17 +164,13 @@ h2{
   line-height: 0.7em;
   outline: none;
   animation: glow 5s linear infinite;
-  /* animation-delay: 3s; */
 }
 @keyframes glow {
   0%,
-  /* 18.1%, */
   55%{
     color: #ae4dfd;
     text-shadow: none;
   }
-  /* 20.1%,
-  60.2%, */
   100% {
     color: #ffff;
     text-shadow: 0 0 10px #adb5bd, 0 0 20px #adb5bd, 0 0 40px #212529,
@@ -248,7 +241,7 @@ h2{
 }
 .container {
   width: 100%;
-  height: 100%;
+  height: 80%;
   border-radius: 12px;
   overflow: hidden;
   display: flex;
@@ -256,10 +249,9 @@ h2{
   align-items: center;
 }
 .image {
-  width: 250px;
+  width: 400px;
   height: 350px; 
   object-fit: cover;
-  /* border-radius: inherit; */
   transform: scale(1.1);
   filter: grayscale(1);
   transition: 400ms ease;
