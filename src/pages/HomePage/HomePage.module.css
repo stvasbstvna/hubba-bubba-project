@@ -3,11 +3,10 @@
 .homePage{
     height: 100vh;
     display: flex;
-    /* background: url('https://img.freepik.com/premium-vector/pastel-color-abstract-background-with-bokeh_31543-138.jpg?w=740');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; */
     position: relative;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 .left{
     flex: 1;
@@ -156,42 +155,12 @@ animation: animateButton 6s infinite ease alternate;
 
 .secondPage{
   height: 100vh;
-  /* background: url('https://img.freepik.com/premium-vector/abstract-vector-background-soft-pastel-gradation-bright-creative-ideas_29865-4151.jpg?w=900');
-  background-size: cover;
-  background-position: center; */
   width:100vw;
   overflow: hidden;
   font-size: 1em;
   color:#FFF3E0;
   text-align:center;
 }
-.heading{
-  font-size:2rem;
-  margin-top:70px; 
-  color:#fff;
-  font-family: "Meta";
-  font-weight: bold;
-  letter-spacing: 7px;
-  width: 100%;
-  text-transform: uppercase;
-  text-align: center;
-  -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(221, 109, 212, 0.986));
-  line-height: 0.7em;
-  outline: none;
-  animation: glow 5s linear infinite;
-}
-@keyframes glow {
-  0%,
-  55%{
-    color: #ae4dfd;
-    text-shadow: none;
-  }
-  100% {
-    color: #ffff;
-    text-shadow: 0 0 10px #adb5bd, 0 0 20px #adb5bd, 0 0 40px #212529,
-      0 0 60px #adb5bd, 0 0 80px #212529, 0 0 140px #adb5bd;
-  }
-} 
 
 .bubble{
   position:absolute;
@@ -201,35 +170,39 @@ animation: animateButton 6s infinite ease alternate;
   background: radial-gradient(circle, rgba(243,165,245,1) 0%, rgba(241,183,225,0.989233193277311) 100%);
   box-shadow: inset 0 20px 30px rgba(255, 255, 255, 0.4), inset 1em 1em 1em rgba(255, 255, 255, 0.6), 0 1em 2em rgba(0, 0, 0, 0.25);
   z-index: 6;
+  cursor: pointer;
 }
-.bubble:hover{
-  display:none;
+
+.bubble:active{
+  display: none;
 }
 
 .b1{
-  animation: floatup 10s linear infinite, sideways 5s ease-in-out infinite alternate;
+  animation: floatup 12s linear infinite, sideways 5s ease-in-out infinite alternate;
   left: 10%;
   top:100%; 
 }
+
+
 .b2{
-  animation: floatup 5s linear infinite, sideways 4s ease-in-out 1s infinite alternate;
+  animation: floatup 10s linear infinite, sideways 4s ease-in-out 1s infinite alternate;
   left: 15%;
   top: 30%;
   transform: scale(.7);
 }
 .b3{
-  animation: floatup 4s linear infinite, sideways 6s ease-in-out 6s infinite alternate;
+  animation: floatup 8s linear infinite, sideways 6s ease-in-out 6s infinite alternate;
   left: 20%;
   transform: scale(1.2);
 }
 .b4{
-  animation: floatup 6s linear infinite, sideways 5s ease-in-out 3s infinite alternate;
+  animation: floatup 9s linear infinite, sideways 5s ease-in-out 3s infinite alternate;
   left: 25%;
   top:90%;
   transform: scale(.5);
 }
 .b5{
-  animation: floatup 8s linear infinite, sideways 6s ease-in-out 3s infinite alternate;
+  animation: floatup 6s linear infinite, sideways 6s ease-in-out 3s infinite alternate;
   left: 30%;
   top:30%;
   transform: scale(1.1);
@@ -254,7 +227,7 @@ animation: animateButton 6s infinite ease alternate;
   0% {margin-left: 0em;}
   100%{margin-left: 20em;}
 }
-.container {
+.secondPage__container{
   width: 100%;
   height: 80%;
   border-radius: 12px;
@@ -262,6 +235,7 @@ animation: animateButton 6s infinite ease alternate;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-top: 7%;
 }
 .image {
   width: 400px;
