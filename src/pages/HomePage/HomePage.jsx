@@ -1,12 +1,11 @@
 import React from 'react'
 import style from './HomePage.module.css'
 import HubbaRed from './images/hubba-red.png'
-import HubbaJug from './images/hubba-jug.png'
 import HubbaBox from './images/hubba-box.png'
 import HubbaPink from './images/hubba-pink.png'
 
 
-const HomePage = () => {
+const HomePage = () => {  
   return (
     <>
     <div className={style.homePage}>
@@ -39,7 +38,7 @@ const HomePage = () => {
       </div>
     </div>
     <div className={style.secondPage}>
-        <h2 className={style.heading}>Hover to pop the bubbles!</h2>
+      <h2 className={style.left__text}>CLICK TO POP THE BUBBLES!</h2>
         <div className={`${style.bubble} ${style.b1}`}></div>
         <div className={`${style.bubble} ${style.b2}`}></div>
         <div className={`${style.bubble} ${style.b3}`}></div>
@@ -47,12 +46,12 @@ const HomePage = () => {
         <div className={`${style.bubble} ${style.b5}`}></div>
         <div className={`${style.bubble} ${style.b6}`}></div>
         <div className={`${style.bubble} ${style.b7}`}></div>
-        <div className={style.container}>
+
+        <div className={style.secondPage__container}>
           <img className={style.image} src={HubbaRed} alt='hubba'/>
           <img className={style.image} src={HubbaBox} alt='hubba'/>
           <img className={style.image} src={HubbaPink} alt='hubba'/>
-        </div>
-        
+        </div>   
     </div>
     </>
   )
