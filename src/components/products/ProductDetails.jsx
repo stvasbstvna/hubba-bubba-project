@@ -1,14 +1,17 @@
-import React, { useEffect } from "react"; 
+import React, { useState, useEffect } from "react"; 
 import { useDispatch, useSelector } from "react-redux"; 
 import { useNavigate, useParams } from "react-router-dom"; 
 import { getOneProduct ,deleteProduct } from "../../store/products/productsActions"; 
 import { clearOneProductState } from "../../store/products/productsSlice"; 
 import { checkUserLogin } from "../../helpers/functions"; 
 import { toggleProductToCart ,checkProductInCart } from '../../store/cart/cartActions';
+import { getCart } from '../../store/cart/cartSlice';
 
  
 const ProductDetails = () => { 
   const { loading, oneProduct } = useSelector((state) => state.products); 
+  const { cart } = useSelector((state) => state.cart); 
+  const [isProductInCart, setIsProductInCart] = useState(false);
   const { id } = useParams(); 
   const navigate = useNavigate(); 
   const dispatch = useDispatch(); 
@@ -17,6 +20,15 @@ const ProductDetails = () => {
     dispatch(getOneProduct({ id })); 
     return () => dispatch(clearOneProductState()); 
   }, []); 
+
+  useEffect(() => {
+    if(!oneProduct) return;
+    if(checkProductInCart(oneProduct.id)) {
+      setIsProductInCart(true);
+    } else {
+      setIsProductInCart(false);
+    };
+  }, [cart, oneProduct]);
  
   return ( 
     <> 
@@ -75,7 +87,10 @@ const ProductDetails = () => {
                     </button> 
                     <button
                     className="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-pink-300 focus:relative"
-                     onClick={() => toggleProductToCart(oneProduct)}>{checkProductInCart() ? "Remove From Cart":"Add To Cart"}</button>
+                     onClick={() => {
+                      toggleProductToCart(oneProduct);
+                      dispatch(getCart());
+                     }}>{isProductInCart ? 'Remove From Cart' : 'Add To Cart'}</button>
                   </span>   
                 </div> 
               )} 

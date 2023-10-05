@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCart } from "../../store/cart/cartSlice";
+import { changeCountProductInCart, deleteProductFromCart, cleanCart, createOrder } from "../../store/cart/cartActions";
 
 const Cart = () => {
   const { cart } = useSelector((state) => state.cart);
@@ -16,45 +17,6 @@ const Cart = () => {
         <>
           {cart.products.length ? (
             <>
-              {/* <table border="2">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Picture</th>
-                    <th>Price for one</th>
-                    <th>Count</th>
-                    <th>Total cost</th>
-                    <th>Delete</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cart.products.map(product => (
-                    <tr>
-                      <td>
-                        { product.productItem.name }
-                      </td>
-                      <td>
-                        <img src={product.productItem.picture} alt={product.productItem.name} width="50" height="50" />
-                      </td>
-                      <td>
-                        ${ product.productItem.price }
-                      </td>
-                      <td>
-                        <input type="number" value={product.count} />
-                      </td>
-                      <td>
-                        ${product.totalPrice}
-                      </td>
-                      <td>
-                        <button>Delete</button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              <h3>Total cost: ${cart.totalCost}</h3>
-              <button>Create Order</button>
-              <button>Clean Cart</button> */}
               <section>
                 <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
                   <div className="mx-auto max-w-3xl">
@@ -101,15 +63,24 @@ const Cart = () => {
                                 </label>
 
                                 <input
+                                  onChange={(e) => {
+                                    changeCountProductInCart(product.productItem.id, +e.target.value);
+                                    dispatch(getCart());
+                                  }}
                                   type="number"
                                   min="1"
-                                  value="1"
+                                  value={product.count}
                                   id="Line3Qty"
                                   className="h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
                                 />
                               </form>
 
-                              <button className="text-gray-600 transition hover:text-red-600">
+                              <button 
+                              onClick={() => {
+                                deleteProductFromCart(product.productItem.id);
+                                dispatch(getCart());
+                              }}
+                              className="text-gray-600 transition hover:text-red-600">
                                 <span className="sr-only">Remove item</span>
 
                                 <svg
@@ -145,12 +116,19 @@ const Cart = () => {
 
                           <div className="flex justify-end">
                             <a
+                              onClick={() => {
+                                dispatch(createOrder());
+                              }}
                               href="#"
                               className="block rounded bg-pink-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-pink-600"
                             >
                               Order
                             </a>
                             <a
+                              onClick={() => {
+                                cleanCart();
+                                dispatch(getCart());
+                              }}
                               href="#"
                               className="ml-2 block rounded bg-pink-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-pink-600"
                             >

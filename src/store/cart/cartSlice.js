@@ -1,15 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCartData } from "./cartActions";
+import { getCartData, createOrder, getProductsCountInCart } from "./cartActions";
 
 export const cartSlice = createSlice({
     name: 'cart',
     initialState: {
-        cart: null
+        cart: null,
+        countProductsInCart: 0
     },
     reducers: {
         getCart: (state) => {
             state.cart = getCartData();
+            state.countProductsInCart = getProductsCountInCart();
         }
+    },
+    extraReducers: (builder) => {
+        builder
+        .addCase(createOrder.fulfilled, (state) => {
+            state.cart = getCartData();
+            state.countProductsInCart = 0;
+        })
     }
 });
 
@@ -20,8 +29,8 @@ export default cartSlice.reducer;
 //     totalCost: 1740,
 //     products: [
 //         {
-//             count: 3,
-//             totalPrice: 1740,
+//             count: 1,
+//             totalPrice: 580,
 //             productItem: {
 //                 "name": "iPhone 11",
 //                 "description": "12-Мп ",

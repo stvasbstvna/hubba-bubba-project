@@ -27,3 +27,9 @@ export const updateToken = () => {
         localStorage.setItem('tokens', JSON.stringify({ refresh: tokens.refresh, access: data.access }));
     }, 1000 * 60 * 9);
 };
+
+export const getTotalPages = async (url) => {
+    const { data } = await axios.get(url);
+    const totalPages = Math.ceil(data.length / 12);
+    return totalPages;
+};
