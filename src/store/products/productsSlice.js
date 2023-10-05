@@ -6,11 +6,18 @@ const productsSlice = createSlice({
     initialState: {
         loading: false,
         products: [],
-        oneProduct: null
+        oneProduct: null,
+        currentPage: 1,
+        totalPages: 1,
+        currentCategory: '',
+        search: ''
     },
     reducers: {
         clearOneProductState: (state) => {
             state.oneProduct = null;
+        },
+        changePage: (state, action) => {
+            state.currentPage = action.payload.page;
         }
     },
     extraReducers: (builder) => {
@@ -20,7 +27,8 @@ const productsSlice = createSlice({
         })
         .addCase(getProducts.fulfilled, (state, action) => {
             state.loading = false;
-            state.products = action.payload;
+            state.products = action.payload.data;
+            state.totalPages = action.payload.totalPages;
         })
         .addCase(getProducts.rejected, (state) => {
             state.loading = false;
@@ -38,5 +46,5 @@ const productsSlice = createSlice({
     }
 });
 
-export const { clearOneProductState }  = productsSlice.actions;
+export const { clearOneProductState, changePage }  = productsSlice.actions;
 export default productsSlice.reducer;
