@@ -1208,5 +1208,138 @@
       "type": "sport",
       "id": 160
     }
+  ],
+  "orders": [
+    {
+      "user": "User123",
+      "totalCost": 46000,
+      "products": [
+        {
+          "count": 13,
+          "totalPrice": 26000,
+          "productItem": {
+            "name": "Studio Display",
+            "description": "Потрясающий 27-дюймовый дисплей Retina 5K, и миллиард цветов. Ультраширокая камера 12 МП с функцией 'В центре внимания' Три микрофона студийного качества и звуковая система с шестью динамиками и функцией Spatial Audio. Порты для подключения и зарядки",
+            "price": 2000,
+            "picture": "https://www.istore.kg/media/products/studio-display-1.webp",
+            "type": "electronics",
+            "id": 10
+          }
+        },
+        {
+          "count": 10,
+          "totalPrice": 20000,
+          "productItem": {
+            "name": "Studio Display",
+            "description": "Потрясающий 27-дюймовый дисплей Retina 5K, и миллиард цветов. Ультраширокая камера 12 МП с функцией 'В центре внимания' Три микрофона студийного качества и звуковая система с шестью динамиками и функцией Spatial Audio. Порты для подключения и зарядки",
+            "price": 2000,
+            "picture": "https://www.istore.kg/media/products/studio-display-1.webp",
+            "type": "electronics",
+            "id": 7
+          }
+        }
+      ],
+      "id": 1
+    },
+    {
+      "user": "User123",
+      "totalCost": 2000,
+      "products": [
+        {
+          "count": 1,
+          "totalPrice": 2000,
+          "productItem": {
+            "name": "Studio Display",
+            "description": "Потрясающий 27-дюймовый дисплей Retina 5K, и миллиард цветов. Ультраширокая камера 12 МП с функцией 'В центре внимания' Три микрофона студийного качества и звуковая система с шестью динамиками и функцией Spatial Audio. Порты для подключения и зарядки",
+            "price": 2000,
+            "picture": "https://www.istore.kg/media/products/studio-display-1.webp",
+            "type": "electronics",
+            "id": 10
+          }
+        }
+      ],
+      "id": 2
+    },
+    {
+      "user": "User123",
+      "totalCost": 8500,
+      "products": [
+        {
+          "count": 1,
+          "totalPrice": 2000,
+          "productItem": {
+            "name": "Studio Display",
+            "description": "Потрясающий 27-дюймовый дисплей Retina 5K, и миллиард цветов. Ультраширокая камера 12 МП с функцией 'В центре внимания' Три микрофона студийного качества и звуковая система с шестью динамиками и функцией Spatial Audio. Порты для подключения и зарядки",
+            "price": 2000,
+            "picture": "https://www.istore.kg/media/products/studio-display-1.webp",
+            "type": "electronics",
+            "id": 10
+          }
+        },
+        {
+          "count": 10,
+          "totalPrice": 6500,
+          "productItem": {
+            "name": "iPhone 12",
+            "description": "Потрясающий 27-дюймовый дисплей Retina 5K, и миллиард цветов. Ультраширокая каУсовершенствованная система с двумя камерами и записью Dolby Vision HDR,Сверхмощный чип A14 Bionic с 4-ядерным GPU,6,1-дюймовый дисплей Super Retina XDR с True Tone,Дисплей Ceramic Shield прочнее, чем любое стекло смартфона",
+            "price": 650,
+            "picture": "https://www.istore.kg/media/products/12-Black.webp",
+            "type": "electronics",
+            "id": 11
+          }
+        }
+      ],
+      "id": 3
+    },
+    {
+      "user": "User123",
+      "totalCost": 2000,
+      "products": [
+        {
+          "count": 1,
+          "totalPrice": 2000,
+          "productItem": {
+            "name": "Studio Display",
+            "description": "Потрясающий 27-дюймовый дисплей Retina 5K, и миллиард цветов. Ультраширокая камера 12 МП с функцией 'В центре внимания' Три микрофона студийного качества и звуковая система с шестью динамиками и функцией Spatial Audio. Порты для подключения и зарядки",
+            "price": 2000,
+            "picture": "https://www.istore.kg/media/products/studio-display-1.webp",
+            "type": "electronics",
+            "id": 10
+          }
+        }
+      ],
+      "id": 4
+    },
+    {
+      "user": "User123",
+      "totalCost": 2650,
+      "products": [
+        {
+          "count": 1,
+          "totalPrice": 2000,
+          "productItem": {
+            "name": "Studio Display",
+            "description": "Потрясающий 27-дюймовый дисплей Retina 5K, и миллиард цветов. Ультраширокая камера 12 МП с функцией 'В центре внимания' Три микрофона студийного качества и звуковая система с шестью динамиками и функцией Spatial Audio. Порты для подключения и зарядки",
+            "price": 2000,
+            "picture": "https://www.istore.kg/media/products/studio-display-1.webp",
+            "type": "electronics",
+            "id": 10
+          }
+        },
+        {
+          "count": 1,
+          "totalPrice": 650,
+          "productItem": {
+            "name": "iPhone 12",
+            "description": "Потрясающий 27-дюймовый дисплей Retina 5K, и миллиард цветов. Ультраширокая каУсовершенствованная система с двумя камерами и записью Dolby Vision HDR,Сверхмощный чип A14 Bionic с 4-ядерным GPU,6,1-дюймовый дисплей Super Retina XDR с True Tone,Дисплей Ceramic Shield прочнее, чем любое стекло смартфона",
+            "price": 650,
+            "picture": "https://www.istore.kg/media/products/12-Black.webp",
+            "type": "electronics",
+            "id": 11
+          }
+        }
+      ],
+      "id": 5
+    }
   ]
 }

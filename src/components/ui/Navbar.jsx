@@ -1,9 +1,12 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
 import { logout, checkUserLogin } from "../../helpers/functions";
 import { updateToken } from "../../helpers/functions";
 import logo from './images/logo.png'
 const NavBar = () => {
+  const { countProductsInCart } = useSelector(state => state.cart);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -58,7 +61,7 @@ const NavBar = () => {
                         className="text-white transition hover:text-pink-600 hover:text-opacity-75 font-bold uppercase"
                         onClick={() => navigate("/cart")}
                       >
-                        Carts
+                        Cart {countProductsInCart}
                       </button>
                     </li>
                   )}

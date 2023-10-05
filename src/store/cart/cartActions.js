@@ -1,3 +1,7 @@
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { ORDERS_API } from "../../helpers/consts";
+import axios from "axios";
+
 export const getCartData = () => {
     const cart = JSON.parse(localStorage.getItem('cart'));
     if(!cart) return {
@@ -38,3 +42,43 @@ export const toggleProductToCart = (productObj) => {
     cart.totalCost = countCartTotalCost(cart.products);
     setCartData(cart);
 };
+
+export const changeCountProductInCart = (productId, count) => {
+    if(count < 0) return alert('Count of product must be positive int!');
+    const cart = getCartData();
+    cart.products = cart.products.map(product => {
+        if(product.productItem.id === productId) {
+            product.count = count;
+            product.totalPrice = product.productItem.price * count;
+        };
+        return product;
+    });
+    cart.totalCost = countCartTotalCost(cart.products);
+    setCartData(cart);
+};
+
+export const deleteProductFromCart = (productId) => {
+    const cart = getCartData();
+    cart.products = cart.products.filter(product => product.productItem.id !== productId);
+    cart.totalCost = countCartTotalCost(cart.products);
+    setCartData(cart);
+};
+
+export const cleanCart = () => {
+    localStorage.removeItem('cart');
+};
+
+export const getProductsCountInCart = () => {
+    const cart = getCartData();
+    return cart.products.length;
+};
+
+export const createOrder = createAsyncThunk(
+    'cart/createOrder',
+    async () => {
+        const cart = getCartData();
+        if(!cart.products.length) return;
+        await axios.post(ORDERS_API, cart);
+        cleanCart();
+    }
+);
