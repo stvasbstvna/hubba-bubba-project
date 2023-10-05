@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createProduct } from "../../store/products/productsActions";
-import styles from "../../";
+
 
 const ProductCreate = () => {
   const [product, setProduct] = useState({
@@ -12,14 +12,13 @@ const ProductCreate = () => {
     price: 0,
     type: "",
   });
+  const { picture } = product;
 
-  const {picture} = product
-  
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   return (
-    <div className="mx-auto w-1/4 flex flex-col justify-center items-center m-24 bg-white p-6 rounded shadow-md">
+    <div className="mx-auto w-1/4 flex flex-col justify-center items-center m-24">
       <h3 className="mb-8 font-bold text-3xl text-center">Create Product</h3>
       <input
         className="border border-slate-300 w-full p-3 rounded mb-4"
@@ -45,13 +44,11 @@ const ProductCreate = () => {
           setProduct({ ...product, price: parseInt(e.target.value) })
         }
       />
-
-      <input
-        className="border border-slate-300 w-full p-3 rounded mb-4"
-        type="text"
-        placeholder="Type"
-        onChange={(e) => setProduct({ ...product, type: e.target.value })}
-      />
+        <select onChange={(e) => setProduct({ ...product, type: e.target.value })} className="w-full mb-4 p-3 h-12 border rounded-md">
+          <option>electronics</option>
+          <option>clothes</option>
+          <option>sport</option>
+        </select>
       <div className="flex flex-row w-full">
         <input
           className="border border-slate-300 w-full h-12 p-3 rounded mb-4"
@@ -61,7 +58,7 @@ const ProductCreate = () => {
         />
         {picture ? (
           <img
-          className="m-2 rounded-lg"
+            className="m-2 rounded-lg"
             src={product.picture}
             alt={product.name}
             width="100"
@@ -69,14 +66,13 @@ const ProductCreate = () => {
           />
         ) : (
           <img
-          className="m-2 rounded-lg"
+            className="m-2 rounded-lg"
             src="https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
             alt="avatar"
             width="100"
             height="100"
           />
         )}
-        
       </div>
       <button
         className="w-full text-center py-3 rounded bg-pink-500 font-bold text-white hover:bg-pink-700"
