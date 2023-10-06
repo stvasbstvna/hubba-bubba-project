@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { getProducts } from "../../store/products/productsActions";
+import { setSearchVal } from "../../store/products/productsSlice";
 
 const ProductsSearch = () => {
+  const [searchValue, setSearchValue] = useState('');
+  const dispatch = useDispatch();
+
   return (
     <div className="relative w-1/6">
       <label htmlFor="Search" className="sr-only">
@@ -9,6 +15,7 @@ const ProductsSearch = () => {
       </label>
 
       <input
+        onChange={(e) => setSearchValue(e.target.value)}
         type="text"
         id="Search"
         placeholder="Search for..."
@@ -16,7 +23,10 @@ const ProductsSearch = () => {
       />
 
       <span className="absolute inset-y-0 end-0 grid w-10 place-content-center">
-        <button type="button" className="text-white hover:text-white">
+        <button onClick={() => {
+          dispatch(setSearchVal({ search: searchValue }));
+          dispatch(getProducts());
+        }} type="button" className="text-white hover:text-white">
           <span className="sr-only">Search</span>
 
           <svg

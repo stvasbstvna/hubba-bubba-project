@@ -33,3 +33,8 @@ export const getTotalPages = async (url) => {
     const totalPages = Math.ceil(data.length / 12);
     return totalPages;
 };
+
+export const getAuthUser = () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user;
+};

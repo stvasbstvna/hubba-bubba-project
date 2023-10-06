@@ -4,18 +4,20 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getOneProduct,
   editProduct,
+  getCategories
 } from "../../store/products/productsActions";
 import { clearOneProductState } from "../../store/products/productsSlice";
 
 const ProductEdit = () => {
-  const { loading, oneProduct } = useSelector((state) => state.products);
+  const { loading, oneProduct, categories } = useSelector((state) => state.products);
   const [product, setProduct] = useState(oneProduct);
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { picture } = product;
+ 
   useEffect(() => {
     dispatch(getOneProduct({ id }));
+    dispatch(getCategories());
     return () => dispatch(clearOneProductState());
   }, []);
 
@@ -74,16 +76,14 @@ const ProductEdit = () => {
                 }
                 value={product.price}
               />
-              <select
-                onChange={(e) =>
-                  setProduct({ ...product, type: e.target.value })
-                }
-                className="w-full mb-4 p-3 h-12 border rounded-md"
-              >
-                <option>electronics</option>
-                <option>clothes</option>
-                <option>sport</option>
-              </select>
+
+          <select onChange={(e) => setProduct({ ...product, type: e.target.value })} value={product.type} className="w-full mb-4 p-3 h-12 border rounded-md">
+            <option disabled>Choose category</option>
+            {categories.map(category => (
+              <option key={category} value={category}>{category}</option>
+            ))}
+          </select>
+
               <div className="flex flex-row w-full">
                 <input
                   className="border border-slate-300 w-full h-12 p-3 rounded mb-4"
@@ -94,7 +94,7 @@ const ProductEdit = () => {
                   }
                   value={product.picture}
                 />
-                {picture ? (
+                {product.picture ? (
                   <img
                     className="m-2 rounded-lg"
                     src={product.picture}

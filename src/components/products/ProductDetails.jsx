@@ -6,8 +6,9 @@ import { clearOneProductState } from "../../store/products/productsSlice";
 import { checkUserLogin } from "../../helpers/functions"; 
 import { toggleProductToCart ,checkProductInCart } from '../../store/cart/cartActions';
 import { getCart } from '../../store/cart/cartSlice';
+import CommentCreate from '../comments/CommentCreate';
+import CommentList from '../comments/CommentList';
 
- 
 const ProductDetails = () => { 
   const { loading, oneProduct } = useSelector((state) => state.products); 
   const { cart } = useSelector((state) => state.cart); 
@@ -67,6 +68,18 @@ const ProductDetails = () => {
                     </div> 
                   </div> 
                 </div> 
+
+                <>
+                  {checkUserLogin() && (
+                    <CommentCreate product={oneProduct} />
+                  )}
+                  {oneProduct.comments ? (
+                    <CommentList comments={oneProduct.comments} />
+                  ) : (
+                    <h3>No comments yet!</h3>
+                  )}
+                </>
+
               </section> 
               {checkUserLogin() && ( 
                 <div className="flex justify-center m-10"> 

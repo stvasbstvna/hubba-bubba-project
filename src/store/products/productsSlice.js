@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getProducts, getOneProduct } from './productsActions';
+import { getProducts, getOneProduct, getCategories } from './productsActions';
 
 const productsSlice = createSlice({
     name: 'products',
@@ -10,7 +10,8 @@ const productsSlice = createSlice({
         currentPage: 1,
         totalPages: 1,
         currentCategory: '',
-        search: ''
+        search: '',
+        categories: []
     },
     reducers: {
         clearOneProductState: (state) => {
@@ -18,6 +19,18 @@ const productsSlice = createSlice({
         },
         changePage: (state, action) => {
             state.currentPage = action.payload.page;
+        },
+        changeCategory: (state, action) => {
+            if(action.payload.category === 'all') {
+                state.currentCategory = '';
+            } else {
+                state.currentCategory = action.payload.category;
+            };
+            state.currentPage = 1;
+        },
+        setSearchVal: (state, action) => {
+            state.search = action.payload.search;
+            state.currentPage = 1;
         }
     },
     extraReducers: (builder) => {
@@ -43,8 +56,11 @@ const productsSlice = createSlice({
         .addCase(getOneProduct.rejected, (state) => {
             state.loading = false;
         })
+        .addCase(getCategories.fulfilled, (state, action) => {
+            state.categories = action.payload;
+        })
     }
 });
 
-export const { clearOneProductState, changePage }  = productsSlice.actions;
+export const { clearOneProductState, changePage, setSearchVal, changeCategory }  = productsSlice.actions;
 export default productsSlice.reducer;

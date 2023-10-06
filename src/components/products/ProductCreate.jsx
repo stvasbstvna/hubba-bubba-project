@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { createProduct } from "../../store/products/productsActions";
-
+import { createProduct, getCategories } from "../../store/products/productsActions";
 
 const ProductCreate = () => {
+  const { categories } = useSelector(state => state.products);
   const [product, setProduct] = useState({
     name: "",
     description: "",
@@ -12,10 +12,13 @@ const ProductCreate = () => {
     price: 0,
     type: "",
   });
-  const { picture } = product;
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, []);
 
   return (
     <div className="mx-auto w-1/4 flex flex-col justify-center items-center m-24">
@@ -44,11 +47,14 @@ const ProductCreate = () => {
           setProduct({ ...product, price: parseInt(e.target.value) })
         }
       />
+
         <select onChange={(e) => setProduct({ ...product, type: e.target.value })} className="w-full mb-4 p-3 h-12 border rounded-md">
-          <option>electronics</option>
-          <option>clothes</option>
-          <option>sport</option>
+          <option disabled>Choose category</option>
+          {categories.map(category => (
+            <option key={category} value={category}>{category}</option>
+          ))}
         </select>
+
       <div className="flex flex-row w-full">
         <input
           className="border border-slate-300 w-full h-12 p-3 rounded mb-4"
@@ -56,7 +62,7 @@ const ProductCreate = () => {
           placeholder="Picture"
           onChange={(e) => setProduct({ ...product, picture: e.target.value })}
         />
-        {picture ? (
+        {product.picture ? (
           <img
             className="m-2 rounded-lg"
             src={product.picture}
