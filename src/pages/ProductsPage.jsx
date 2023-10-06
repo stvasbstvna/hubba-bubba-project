@@ -7,8 +7,10 @@ import ProductsSearch from '../components/products/ProductsSearch'
 const ProductsPage = () => {
   return (
     <div>
-        <ProductsSearch />
-        <ProductsFilter />
+      <div className='flex flex-row justify-around'>
+          <ProductsSearch />
+          <ProductsFilter />
+      </div>
         <ProductsList />
     </div>
   )
