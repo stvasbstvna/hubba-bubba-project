@@ -24,7 +24,7 @@ export default function PaginationControlled() {
       <Pagination
         className="paginationBody"
         sx={{
-          backgroundColor: "white",
+          backgroundColor: "rgba(255, 255, 255, 0.8)",
           padding: "5px",
           borderRadius: "20px",
         }}
