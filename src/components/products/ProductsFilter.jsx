@@ -1,21 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getCategories, getProducts } from '../../store/products/productsActions';
+import { changeCategory } from '../../store/products/productsSlice';
 
 const ProductsFilter = () => {
+  const { categories } = useSelector(state => state.products);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, []);
+   
   return (
     <div className="w-1/6">
       <select
-        name="HeadlineAct"
-        id="HeadlineAct"
-        className="mt-1.5 w-full h-9 rounded-lg dark:bg-pink-500 text-white sm:text-sm"
+        className="mt-1.5 w-full h-9 rounded-lg bg-pink-500 text-white sm:text-sm"
       >
-        <option value="">Please select</option>
-        <option value="JM">John Mayer</option>
-        <option value="SRV">Stevie Ray Vaughn</option>
-        <option value="JH">Jimi Hendrix</option>
-        <option value="BBK">B.B King</option>
-        <option value="AK">Albert King</option>
-        <option value="BG">Buddy Guy</option>
-        <option value="EC">Eric Clapton</option>
+        <option value="all">all</option>
+        {categories.map(category => (
+          <option key={category} value={category}>{category}</option>
+        ))}
       </select>
     </div>
   );

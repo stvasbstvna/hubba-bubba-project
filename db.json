@@ -295,6 +295,14 @@
       "price": 1000,
       "type": "free sugar",
       "id": 161
+    },
+    {
+      "name": "Huba Buba super UPD",
+      "description": "Norm",
+      "picture": "https://m.media-amazon.com/images/I/71Av2BgJ3cL._AC_UF350,350_QL80_.jpg",
+      "price": 1234,
+      "type": "gum long 90g",
+      "id": 162
     }
   ],
   "orders": []
