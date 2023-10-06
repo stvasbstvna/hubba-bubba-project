@@ -1,16 +1,20 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logout, checkUserLogin } from "../../helpers/functions";
 import { updateToken } from "../../helpers/functions";
 import logo from './images/logo.png'
+import { getCart } from '../../store/cart/cartSlice'
+
 const NavBar = () => {
   const { countProductsInCart } = useSelector(state => state.cart);
 
   const navigate = useNavigate();
+  const  dispatch = useDispatch();
 
   useEffect(() => {
     updateToken();
+    dispatch(getCart());
   }, []);
 
   return (

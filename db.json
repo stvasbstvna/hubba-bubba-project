@@ -6,7 +6,14 @@
       "price": 2000,
       "picture": "https://i.pinimg.com/236x/66/76/7c/66767c00b0d98c392082c2f8488e5542.jpg",
       "type": "gum long 90g",
-      "id": 7
+      "id": 7,
+      "comments": [
+        {
+          "id": 2413441341,
+          "body": "Hello",
+          "user": "Jack"
+        }
+      ]
     },
     {
       "name": "Hubba Bubba",

@@ -14,6 +14,10 @@ const ProductsFilter = () => {
   return (
     <div className="w-1/6">
       <select
+        onChange={(e) => {
+          dispatch(changeCategory({ category: e.target.value }));
+          dispatch(getProducts());
+        }}
         className="mt-1.5 w-full h-9 rounded-lg bg-pink-500 text-white sm:text-sm"
       >
         <option value="all">all</option>

@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import CommentItem from './CommentItem';
 
 const CommentList = () => {
   return (
-    <div>CommentList</div>
+    <div>
+      <CommentItem />
+    </div>
   )
 }
 

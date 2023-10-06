@@ -130,9 +130,3 @@ const ProductEdit = () => {
 };
 
 export default ProductEdit;
-
-
-// http://localhost:8000/products
-// http://localhost:8000/products?_page=2&_limit=12
-// http://localhost:8000/products?_page=2&_limit=12&type=gum long 90g&q=Bubble Top
-// http://localhost:8000/products?q=svjnsflnvjk
