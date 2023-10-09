@@ -42,25 +42,23 @@
           "user": "Jack"
         },
         {
-          "id": 1696838651035,
-          "body": "wffcsfd",
-          "rating": 3,
-          "user": "Tom"
-        },
-        {
           "id": 1696838847986,
           "body": "dadas",
           "rating": 3,
           "user": "Tom"
+        }
+      ],
+      "likes": [
+        {
+          "id": 25245425245,
+          "user": "Jack"
         },
         {
-          "id": 1696839207760,
-          "body": "dsfsdf",
-          "rating": 3,
+          "id": 25245425244,
           "user": "Tom"
         }
       ],
-      "rating": "3.5"
+      "rating": "3.8"
     },
     {
       "name": "Hubba Bubba",

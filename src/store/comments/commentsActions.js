@@ -28,3 +28,18 @@ export const createComment = createAsyncThunk(
         dispatch(getOneProduct({ id: updatedProductObj.id }));
     }
 );
+
+export const deleteComment = createAsyncThunk(
+    'comments/deleteComment',
+    async ({ commentId }, { dispatch, getState }) => {
+        const { oneProduct } = getState().products;
+        const updatedProduct = { ...oneProduct };
+        updatedProduct.comments = updatedProduct.comments.filter(comment => comment.id !== commentId);
+
+        updatedProduct.rating = getProductRating(updatedProduct);
+
+        await axios.patch(`${PRODUCTS_API}/${updatedProduct.id}`, updatedProduct);
+
+        dispatch(getOneProduct({ id: updatedProduct.id }));
+    }
+);

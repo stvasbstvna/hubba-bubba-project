@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { getAuthUser } from "../../helpers/functions";
+import { deleteComment } from "../../store/comments/commentsActions";
 
 const CommentItem = ({ comment }) => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const CommentItem = ({ comment }) => {
                 </p>
                 {/* new */}
                 {getAuthUser() === comment.user && (
-                  <button>Delete</button>
+                  <button onClick={() => dispatch(deleteComment({ commentId: comment.id }))}>Delete</button>
                 )}
                 {/*  */}
               </div>
