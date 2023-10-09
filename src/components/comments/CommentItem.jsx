@@ -1,6 +1,10 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { getAuthUser } from "../../helpers/functions";
 
-const CommentItem = () => {
+const CommentItem = ({ comment }) => {
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className="max-w-xl p-8 mx-auto dark:bg-gray-800 dark:text-gray-100 border-sky-300">
@@ -13,17 +17,20 @@ const CommentItem = () => {
                   className="inline-flex items-center px-3 py-1 my-1 space-x-2 text-sm border rounded-full group dark:border-gray-700"
                 >
                   <span className="group-hover:underline dark:text-red-600 text-gray-600 ">
-                    @username
+                    @{ comment.user }
                   </span>
                 </a>
                 <span className="text-xs whitespace-nowrap">10h ago</span>
               </div>
               <div>
                 <p className="text-gray-600">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Tincidunt nunc ipsum tempor purus vitae id. Morbi in
-                  vestibulum nec varius.
+                  { comment.body }
                 </p>
+                {/* new */}
+                {getAuthUser() === comment.user && (
+                  <button>Delete</button>
+                )}
+                {/*  */}
               </div>
             </div>
           </li>
