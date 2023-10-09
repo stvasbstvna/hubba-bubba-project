@@ -1,11 +1,18 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCart } from "../../store/cart/cartSlice";
-import { changeCountProductInCart, deleteProductFromCart, cleanCart, createOrder } from "../../store/cart/cartActions";
+import {
+  changeCountProductInCart,
+  deleteProductFromCart,
+  cleanCart,
+  createOrder,
+} from "../../store/cart/cartActions";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { cart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getCart());
@@ -21,7 +28,7 @@ const Cart = () => {
                 <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
                   <div className="mx-auto max-w-3xl">
                     <header className="text-center">
-                      <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">
+                      <h1 className="text-xl font-bold text-white sm:text-3xl uppercase hover:text-pink-700">
                         Your Cart
                       </h1>
                     </header>
@@ -36,11 +43,11 @@ const Cart = () => {
                             />
 
                             <div>
-                              <h5 className="text-sm text-gray-900">
+                              <h5 className="text-pink-700 uppercase font-bold hover:text-purple-400">
                                 {product.productItem.name}
                               </h5>
 
-                              <dl className="mt-0.5 space-y-px text-[12px] text-gray-600">
+                              <dl className="mt-0.5 space-y-px text-[12px] text-pink-500 font-bold">
                                 <div>
                                   <dd className="inline">
                                     Total-Price: ${product.totalPrice}
@@ -64,23 +71,27 @@ const Cart = () => {
 
                                 <input
                                   onChange={(e) => {
-                                    changeCountProductInCart(product.productItem.id, +e.target.value);
+                                    changeCountProductInCart(
+                                      product.productItem.id,
+                                      +e.target.value
+                                    );
                                     dispatch(getCart());
                                   }}
                                   type="number"
                                   min="1"
                                   value={product.count}
                                   id="Line3Qty"
-                                  className="h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+                                  className="h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-2xs text-pink-600 font-bold [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
                                 />
                               </form>
 
-                              <button 
-                              onClick={() => {
-                                deleteProductFromCart(product.productItem.id);
-                                dispatch(getCart());
-                              }}
-                              className="text-gray-600 transition hover:text-red-600">
+                              <button
+                                onClick={() => {
+                                  deleteProductFromCart(product.productItem.id);
+                                  dispatch(getCart());
+                                }}
+                                className="text-pink-700 transition hover:text-white"
+                              >
                                 <span className="sr-only">Remove item</span>
 
                                 <svg
@@ -89,7 +100,7 @@ const Cart = () => {
                                   viewBox="0 0 24 24"
                                   stroke-width="1.5"
                                   stroke="currentColor"
-                                  className="h-5 w-5"
+                                  className="h-6 w-6"
                                 >
                                   <path
                                     stroke-linecap="round"
@@ -107,12 +118,14 @@ const Cart = () => {
                         <div className="w-screen max-w-lg space-y-4">
                           <dl className="space-y-0.5 text-sm text-gray-700">
                             <div className="flex justify-between !text-base font-medium">
-                              <dt>Total</dt>
-                              <dd>${cart.totalCost}</dd>
+                              <dt className="uppercase font-bold text-pink-600 hover:text-pink-400">
+                                Total
+                              </dt>
+                              <dd className="uppercase font-bold text-pink-600 hover:text-pink-400">
+                                ${cart.totalCost}
+                              </dd>
                             </div>
                           </dl>
-
-                        
 
                           <div className="flex justify-end">
                             <a
@@ -120,7 +133,7 @@ const Cart = () => {
                                 dispatch(createOrder());
                               }}
                               href="#"
-                              className="block rounded bg-pink-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-pink-600"
+                              className="block rounded bg-pink-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-pink-600 uppercase"
                             >
                               Order
                             </a>
@@ -130,7 +143,7 @@ const Cart = () => {
                                 dispatch(getCart());
                               }}
                               href="#"
-                              className="ml-2 block rounded bg-pink-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-pink-600"
+                              className="ml-2 block rounded bg-pink-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-pink-600 uppercase"
                             >
                               CLean
                             </a>
@@ -143,7 +156,20 @@ const Cart = () => {
               </section>
             </>
           ) : (
-            <h3>Cart is empty!</h3>
+            <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-16 lg:px-8">
+              <h3 className="text-center font-bold uppercase text-white text-3xl hover:text-pink-700">
+                Cart is empty!
+              </h3>
+              <p className="font-bold text-pink-700 uppercase text-center m-7 text-xl hover:text-pink-600">
+                You should add products to the cart
+              </p>
+              <button
+                onClick={() => navigate("/products")}
+                className="flex items-center m-auto rounded bg-pink-700 px-5 py-3 text-white transition hover:bg-pink-600 uppercase text-lg "
+              >
+                Go To Products
+              </button>
+            </div>
           )}
         </>
       )}
