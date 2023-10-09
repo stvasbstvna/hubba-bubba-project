@@ -61,6 +61,10 @@ const ProductDetails = () => {
                         {oneProduct.name}
                       </h3>
 
+                      {oneProduct.rating && (
+                        <h3>Rating: { oneProduct.rating }</h3>
+                      )}
+
                       <p className="mt-4 text-gray-600">
                         {oneProduct.description}
                       </p>
