@@ -13,6 +13,12 @@
           "body": "Hello",
           "user": "Jack"
         }
+      ],
+      "likes": [
+        {
+          "id": 1696923561239,
+          "user": "Jack"
+        }
       ]
     },
     {
@@ -66,7 +72,13 @@
       "price": 650,
       "picture": "https://i.pinimg.com/564x/7a/cb/53/7acb53e0a5b13673cc57a8d99987e8b2.jpg",
       "type": "gum long 90g",
-      "id": 11
+      "id": 11,
+      "likes": [
+        {
+          "id": 1696924090987,
+          "user": "Tom"
+        }
+      ]
     },
     {
       "name": "Hubba Bubba",
@@ -82,7 +94,13 @@
       "price": 600,
       "picture": "https://i.pinimg.com/564x/0d/4f/7b/0d4f7be3014be044872b2efb41e5cba5.jpg",
       "type": "gum long 90g",
-      "id": 14
+      "id": 14,
+      "likes": [
+        {
+          "id": 1696923583439,
+          "user": "Tom"
+        }
+      ]
     },
     {
       "name": "Hubba Bubba",
@@ -130,7 +148,13 @@
       "price": 600,
       "picture": "https://i.pinimg.com/236x/55/2c/42/552c4221e2ec21ae1e5316ba6af50a60.jpg",
       "type": "gum long 90g",
-      "id": 20
+      "id": 20,
+      "likes": [
+        {
+          "id": 1696923586155,
+          "user": "Tom"
+        }
+      ]
     },
     {
       "name": "Hubba Bubba",

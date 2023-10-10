@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ProductLike from "./ProductLike";
+import { checkUserLogin, getAuthUser } from '../../helpers/functions';
 
 const ProductItem = ({ product }) => {
+  const [isLikedProduct, setIsLikedProduct] = useState(false);
+
   const navigate = useNavigate();
 
+  const checkProductLike = () => {
+    const user = getAuthUser();
+    if(!product.likes) return;
+    const userLike = product.likes.find(like => like.user === user);
+    if(userLike) {
+      setIsLikedProduct(true);
+    } else {
+      setIsLikedProduct(false);
+    };
+  };
+
+  useEffect(() => {
+    checkProductLike();
+  }, []);
+
   return (
-    <div onClick={() => navigate(`/products/${product.id}`)} className="m-3 w-1/4 cursor-pointer">
+    <div className="m-3 w-1/4 cursor-pointer">
       <div>
         <article className="relative overflow-hidden rounded-lg shadow transition hover:shadow-lg">
           <img
@@ -16,7 +34,7 @@ const ProductItem = ({ product }) => {
           />
 
           <div className="flex justify-around items-center relative bg-gradient-to-t from-gray-900/50 to-gray-900/25 pt-32 sm:pt-48 lg:pt-64">
-            <div className="p-4 sm:p-6">
+            <div  onClick={() => navigate(`/products/${product.id}`)} className="p-4 sm:p-6">
               <p
                 datetime="2022-10-10"
                 className="block text-xs text-white/90"
@@ -34,8 +52,15 @@ const ProductItem = ({ product }) => {
                {product.description}
               </p>
             </div>
-            <div className="p-4 text-white">
-              <ProductLike />
+            <div className="p-4 text-white text-center">
+              {checkUserLogin() && (
+                <ProductLike isLikedProduct={isLikedProduct} likes={product.likes} productId={product.id} />
+              )}
+              {product.likes ? (
+                <span className="text-xl">{ product.likes.length }</span>
+              ) : (
+                <span className="text-xl">0</span>
+              )}
             </div>
           </div>
         </article>
