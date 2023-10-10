@@ -11,7 +11,9 @@ const productsSlice = createSlice({
         totalPages: 1,
         currentCategory: '',
         search: '',
-        categories: []
+        categories: [],
+        sortByRating: '',
+        priceRange: ''
     },
     reducers: {
         clearOneProductState: (state) => {
@@ -31,6 +33,32 @@ const productsSlice = createSlice({
         setSearchVal: (state, action) => {
             state.search = action.payload.search;
             state.currentPage = 1;
+        },
+        setSortByRating: (state, action) => {
+            if(!action.payload.sortByRating) {
+                state.sortByRating = '';
+            } else {
+                state.sortByRating = `&_sort=rating&_order=${action.payload.sortByRating}`;
+            }
+        },
+        setPriceRangeState: (state, action) => {
+            const { minPrice, maxPrice } = action.payload;
+            if(minPrice && maxPrice) {
+                state.priceRange = `&price_gte=${minPrice}&price_lte=${maxPrice}`;
+            } else if(minPrice) {
+                state.priceRange = `&price_gte=${minPrice}`;
+            } else if(maxPrice) {
+                state.priceRange = `&price_lte=${maxPrice}`;
+            } else {
+                state.priceRange = '';
+            }
+        },
+        clearAllFilters: (state) => {
+            state.currentPage = 1;
+            state.currentCategory = '';
+            state.search = '';
+            state.sortByRating = '';
+            state.priceRange = '';
         }
     },
     extraReducers: (builder) => {
@@ -62,5 +90,12 @@ const productsSlice = createSlice({
     }
 });
 
-export const { clearOneProductState, changePage, setSearchVal, changeCategory }  = productsSlice.actions;
+export const { 
+    clearOneProductState, 
+    changePage, setSearchVal, 
+    changeCategory, 
+    setSortByRating, 
+    setPriceRangeState, 
+    clearAllFilters 
+}  = productsSlice.actions;
 export default productsSlice.reducer;

@@ -1,11 +1,18 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../store/products/productsActions";
 import { setSearchVal } from "../../store/products/productsSlice";
 
 const ProductsSearch = () => {
+  const { search } = useSelector(state => state.products);
   const [searchValue, setSearchValue] = useState('');
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if(!search) {
+      setSearchValue('');
+    };
+  }, [search]);
 
   return (
     <div className="relative w-1/6">
@@ -16,6 +23,7 @@ const ProductsSearch = () => {
 
       <input
         onChange={(e) => setSearchValue(e.target.value)}
+        value={searchValue}
         type="text"
         id="Search"
         placeholder="Search for..."

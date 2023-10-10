@@ -1,16 +1,16 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
 import { PRODUCTS_API } from "../../helpers/consts";
-import { getTotalPages } from "../../helpers/functions";
+import { getAuthUser, getTotalPages } from "../../helpers/functions";
 
 export const getProducts = createAsyncThunk(
     'products/getProducts',
     async (_, { getState }) => {
-        const { currentPage, currentCategory, search } = getState().products;
+        const { currentPage, currentCategory, search, sortByRating, priceRange } = getState().products;
         const categoryAndSearchParams = `q=${search}${currentCategory && `&type=${currentCategory}`}`;
         const pagesLimitParams = `?_page=${currentPage}&_limit=12`;
-        const totalPages = await getTotalPages(`${PRODUCTS_API}?${categoryAndSearchParams}`);
-        const { data } = await axios.get(`${PRODUCTS_API}${pagesLimitParams}&${categoryAndSearchParams}`);
+        const totalPages = await getTotalPages(`${PRODUCTS_API}?${categoryAndSearchParams}${priceRange}${sortByRating}`);
+        const { data } = await axios.get(`${PRODUCTS_API}${pagesLimitParams}&${categoryAndSearchParams}${priceRange}${sortByRating}`);
         return { data, totalPages };
     }
 );
@@ -57,5 +57,32 @@ export const getCategories = createAsyncThunk(
             categories.push(i);
         };
         return categories;
+    }
+);
+
+export const toggleProductLike = createAsyncThunk(
+    'products/toggleProductLike',
+    async ({ setIsLike, likes, productId }, { dispatch }) => {
+        const user = getAuthUser();
+        let updatedLikesArr;
+        
+        if(!likes) {
+            updatedLikesArr = [];
+        } else {
+            updatedLikesArr = [ ...likes ];
+        };
+
+        if(setIsLike) {
+            updatedLikesArr.push({
+                id: Date.now(),
+                user
+            });
+        } else {
+            updatedLikesArr = updatedLikesArr.filter(like => like.user !== user);
+        };
+
+        await axios.patch(`${PRODUCTS_API}/${productId}`, { likes: updatedLikesArr });
+
+        dispatch(getProducts());
     }
 );
