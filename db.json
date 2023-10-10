@@ -9,9 +9,10 @@
       "id": 7,
       "comments": [
         {
-          "id": 2413441341,
-          "body": "Hello",
-          "user": "Jack"
+          "id": 1696930134479,
+          "body": "cddsvvs",
+          "rating": 3,
+          "user": "Tom"
         }
       ],
       "likes": [
@@ -19,7 +20,8 @@
           "id": 1696923561239,
           "user": "Jack"
         }
-      ]
+      ],
+      "rating": "3.0"
     },
     {
       "name": "Hubba Bubba",
@@ -73,12 +75,7 @@
       "picture": "https://i.pinimg.com/564x/7a/cb/53/7acb53e0a5b13673cc57a8d99987e8b2.jpg",
       "type": "gum long 90g",
       "id": 11,
-      "likes": [
-        {
-          "id": 1696924090987,
-          "user": "Tom"
-        }
-      ]
+      "likes": []
     },
     {
       "name": "Hubba Bubba",
@@ -108,7 +105,28 @@
       "price": 600,
       "picture": "https://i.pinimg.com/564x/37/52/fc/3752fc528c97e7e462dd0713cf32361b.jpg",
       "type": "gum long 90g",
-      "id": 15
+      "id": 15,
+      "comments": [
+        {
+          "id": 1696929997146,
+          "body": "sdcsdcdsc",
+          "rating": 4,
+          "user": "Tom"
+        },
+        {
+          "id": 1696930012430,
+          "body": "csdcs",
+          "rating": 4,
+          "user": "Tom"
+        }
+      ],
+      "rating": "4.0",
+      "likes": [
+        {
+          "id": 1696930338928,
+          "user": "Tom"
+        }
+      ]
     },
     {
       "name": "Hubba Bubba",
@@ -178,7 +196,13 @@
       "price": 4100,
       "picture": "https://i.pinimg.com/564x/fa/99/f5/fa99f5fa72600f26159450eff9acd12e.jpg",
       "type": "gum mix 16",
-      "id": 23
+      "id": 23,
+      "likes": [
+        {
+          "id": 1696927147762,
+          "user": "Tom"
+        }
+      ]
     },
     {
       "name": "Hubba Bubba",
