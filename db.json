@@ -19,6 +19,10 @@
         {
           "id": 1696923561239,
           "user": "Jack"
+        },
+        {
+          "id": 1696995291714,
+          "user": "sabina"
         }
       ],
       "rating": "3.0"
@@ -64,6 +68,10 @@
         {
           "id": 25245425244,
           "user": "Tom"
+        },
+        {
+          "id": 1696995301629,
+          "user": "sabina"
         }
       ],
       "rating": "3.8"
@@ -75,7 +83,12 @@
       "picture": "https://i.pinimg.com/564x/7a/cb/53/7acb53e0a5b13673cc57a8d99987e8b2.jpg",
       "type": "gum long 90g",
       "id": 11,
-      "likes": []
+      "likes": [
+        {
+          "id": 1696995294779,
+          "user": "sabina"
+        }
+      ]
     },
     {
       "name": "Hubba Bubba",
@@ -395,6 +408,14 @@
       "price": 1234,
       "type": "gum long 90g",
       "id": 162
+    },
+    {
+      "name": "f4vevr b",
+      "description": "rvbreberbre",
+      "picture": "brbrber",
+      "price": 0,
+      "type": "gum mix 16",
+      "id": 163
     }
   ],
   "orders": [
